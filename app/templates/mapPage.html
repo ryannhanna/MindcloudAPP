@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block extracss %}
+
+<script type="text/javascript" src="../../static/vis-4.21.0/dist/vis.js"></script>
+<link href="../../static/vis-4.21.0/dist/vis.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../static/css/mapPage.css">
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"></script>
+
+{% endblock %}
+
+
+    {% block title %} Mind Cloud {% endblock %}
+
+
+{% block content %}
+<body>
+  <!-- <div id=logo>
+    <a href="/page/profile.html"><img id=brain_logo src="../../static/imgs/logo_brain.png" alt="Brain Logo"
+    width:"40" height:"40"></img></a>
+  </div> -->
+
+  <div id="container">
+    <div class="row justify-content-center">
+      <header>
+        <h1>Mind Cloud</h1>
+      </header>
+
+      <div id="mynetwork"></div>
+
+      <div class="form-group">
+        <label for="goal"></label>
+        <input id="node_label_input" type='text' placeholder='Add New Branch'></input>
+        <button id='set' type="button" class="btn btn-success btn-lg">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    // create an array with nodes
+
+    var nodes = new vis.DataSet([
+      {id: 1, label: 'My Goals', "font": {"size": 10}, "color": "orange", "size": 45, "shape": "image",
+      "image": "../../static/imgs/logo_brain.png", fixed: {x: true, y: true}},
+  ]);
+
+  var edges = new vis.DataSet([]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+
+      "nodes": {
+        "color": {
+          "border": "red",
+          "background": "orange",
+          "highlight": {
+            "border": "black",
+            "background": "magenta"
+          },
+          "hover": {
+            "background": "rgba(255,243,249,1)"
+          }
+        },
+        "font": {
+          "color": "OrangeRed",
+          "face": "tahoma",
+          "size": 16,
+          "background": "rgba(233,153,73,0)",
+          "strokeColor": "rgba(233,219,220,0)"
+        },
+        "shadow":{
+          "enabled": "false",
+          "color": 'rgba(0,0,0,0.5)',
+          "size":"10",
+          "x":"5",
+          "y":"5"
+        },
+        "shape": "image",
+        "image": "../../static/imgs/clouds.png",
+      },
+      "edges": {
+        "arrows": {
+          "to": {
+            "enabled": true,
+            "scaleFactor": 0.35,
+            "type": 'arrow'
+          },
+          "middle": {
+            "enabled": true,
+            "scaleFactor": 0.55,
+            "type": 'arrow'
+          },
+          "from": {
+            "enabled": false,
+            "scaleFactor": 0.35,
+            "type": 'arrow'
+          }
+        },
+        "arrowStrikethrough": true,
+        "shadow": {
+          "enabled": true,
+          "color": "gray",
+          "y": 0
+        },
+        "smooth": {
+          "forceDirection": "none"
+        }
+      },
+
+
+
+      configure: {
+        enabled: false,
+        filter: 'nodes,edges',
+        container: undefined,
+        showButton: true
+      },
+
+      interaction:{
+        dragNodes:true,
+        dragView: true,
+        hideEdgesOnDrag: false,
+        hideNodesOnDrag: false,
+        hover: false,
+        hoverConnectedEdges: true,
+        keyboard: {
+          enabled: false,
+          speed: {x: 10, y: 10, zoom: 0.02},
+          bindToWindow: true
+        },
+        multiselect: false,
+        navigationButtons: true,
+        selectable: true,
+        selectConnectedEdges: true,
+        tooltipDelay: 300,
+        zoomView: true
+      },
+
+
+    };
+
+    var locales = {
+      en: {
+        edit: 'Edit',
+        del: 'Delete selected',
+        back: 'Back',
+        addNode: 'Add Node',
+        addEdge: 'Add Edge',
+        editNode: 'Edit Node',
+        editEdge: 'Edit Edge',
+        addDescription: 'Click in an empty space to place a new node.',
+        edgeDescription: 'Click on a node and drag the edge to another node to connect them.',
+        editEdgeDescription: 'Click on the control points and drag them to a node to connect to it.',
+        createEdgeError: 'Cannot link edges to a cluster.',
+        deleteClusterError: 'Clusters cannot be deleted.',
+        editClusterError: 'Clusters cannot be edited.'
+      }
+    };
+
+    // network.setOptions(options);
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+    // network.setOptions(centralOptions);
+
+    $(document).ready(function(){
+    i = 2
+    $('#set').click(function(){
+      nodes.add([newnode = {id: i, label: $('#node_label_input').val()}])
+      edges.add([newedge = {from: 1, to: i}]);
+      network.redraw()
+      i ++
+    })
+  });
+  $('#mindmap').hide();
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/
+  GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+{% endblock %}

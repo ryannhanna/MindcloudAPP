@@ -1,0 +1,173 @@
+.btn-bot{
+    position: Center;
+    bottom: 137px;
+}
+
+.navbar-light .bg-light {
+  background-color: white;
+}
+.navbar {
+  margin: 0;
+  background-color: orange;
+}
+
+.navbar-toggler {
+  background-color: orange;
+  z-index: 6;
+  font-weight: bold;
+  font-size: 2rem;
+  border: transparent;
+}
+
+.orange_bg {
+  background-color: white;
+}
+
+
+.move {
+  margin-left: -40%;
+}
+
+#quoteDisplay {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+a {
+  color: orange;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+h1, h2 {
+  display: block;
+  margin: 0 auto;
+  color: orange;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+h1 {
+  margin-top: 2rem;
+}
+
+button, input {
+  display: block;
+  margin: 0 auto;
+  width: 13rem;
+  text-align: center;
+  padding: .5rem;
+  border-radius: .5rem .5rem .5rem .5rem;
+  border-color: lightgray;
+  border-style: solid;
+}
+
+button {
+  background-color: orange;
+  color: #fafdff;
+  border: none;
+}
+
+input {
+  margin-top: .35rem;
+  margin-bottom: .35rem;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 80%;
+  display: block;
+}
+
+ul {
+  margin-top: 1rem;
+  margin-left: 3rem;
+  list-style: none;
+  color: #fafdff;
+  width: 20rem;
+}
+
+#modal {
+    background-color: white;
+    font-weight: bold;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+    color: orange;
+    position: fixed;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: black;
+    width: 15rem;
+    height: 10rem;
+    left: calc(50% - 7rem);
+    top: calc(50% - 7rem);
+    box-shadow: 10px 10px 5px #888888;
+    z-index: 2;
+    display: none;
+}
+
+nav {
+  margin-left: 20%;
+  margin-right: 5rem;
+
+}
+
+li {
+  color: lightblue;
+}
+
+/*.container {
+  margin-right: 2.5rem;
+}*/
+
+.hidden, .hidden_list {
+  display: none;
+}
+
+
+  @media screen and (min-width: 667px) and (max-width: 667px) {
+    #set_goal {
+        margin-left: -10%;
+    }
+    .logo {
+          margin-left: 28%;
+    }
+  }
+
+  @media screen and (min-width: 580px) and (max-width: 736px) {
+    #set_goal {
+        margin-left: -10%
+    }
+    .logo {
+          margin-left: 28%;
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .logo {
+      width: 60%;
+      height: 40%;
+    }
+  }
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+/*make responsive for ipad landscape and iphone 6splus landscape

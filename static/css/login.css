@@ -1,0 +1,79 @@
+form {
+    border: 3px solid #f1f1f1;
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+
+
+
+.col-c {
+    margin-top: 5%;
+}
+
+.col-b {
+    margin-top: 0%;
+}
+
+.brain
+   {
+       display: block;
+       left:37%;
+       top:2rem;
+       margin: 0 auto;
+       /*padding: 16%;*/
+   }
+   /*.brain
+   {
+        height: 35rem;
+        width: 40rem;
+
+       color: transparent;
+       position:absolute;
+       left:260px;
+       top:55px;
+       z-index:-1;
+   }*/
+
+   .arrow{
+
+       margin: 0 auto;
+       left:511px;
+       top:160px;
+       z-index:3;
+       height: 65px;
+       width:65px;
+       display: block;
+   }
+
+   h2{
+       position: absolute;
+    text-align: center;
+    left: 536px;
+    top: 154px;
+    z-index: 4;
+    height: 65px;
+    width: 65px;
+   }
+
+h1{
+
+    text-align: center;
+    background-color:rgb(255, 178, 0);
+    color:white;
+}
+
+footer {
+  text-align: center;
+}
